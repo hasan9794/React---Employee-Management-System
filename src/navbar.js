@@ -6,8 +6,8 @@ class Navbar extends React.Component {
             <nav>
                 <div className="nav-wrapper">
                     <a href className="brand-logo">AdminPanel</a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li style={{marginRight: 20}}>Welcome! Admin</li>
+                    <ul id="nav-mobile" className="left hide-on-med-and-down">
+                        <li style={{marginLeft: 20}}>Howdy, Admin</li>
                     </ul>
                 </div>
             </nav>

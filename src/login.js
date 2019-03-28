@@ -1,6 +1,8 @@
 import React from "react"
 import './App.css';
 import Admin from "./adminPanel"
+import swal from 'sweetalert';
+
 class LoginForm extends React.Component {
     constructor(){
         super()
@@ -22,6 +24,9 @@ class LoginForm extends React.Component {
             this.setState({
                 isLoggedIn: true
             })
+            swal("Login Succesful!", "You are now directed to dashboard", "success");
+        } else{
+            swal("Invalid Credentials");
         }
     }
     render(){
@@ -48,7 +53,6 @@ class LoginForm extends React.Component {
                         onChange={this.handleChange.bind(this)} 
                     />
 
-                    <h1>{this.state.user}  {this.state.pw}</h1>
                     <input onClick={this.validiate.bind(this)} className="waves-effect waves-light btn-large " type="submit"></input>
                     {/* <a  href >Button</a> */}
                 </div>

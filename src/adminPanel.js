@@ -1,6 +1,9 @@
 import React from "react"
 import "./adminPanel.css"
 import Navbar from "./navbar"
+import swal from 'sweetalert';
+
+
 
 class Admin extends React.Component {
     constructor(){
@@ -53,7 +56,7 @@ class Admin extends React.Component {
     }
 
     editText(event){
-       let a = prompt("Enter text or value to be repplaced")
+        let a = prompt("Enter text or value to be repplaced")
         event.target.innerHTML = a;
     }
 
@@ -71,8 +74,7 @@ class Admin extends React.Component {
                                 <th>Email</th>
                                 <th>Salary</th>
                                 <th>Job Start Date</th>
-                            </tr>
-                            
+                            </tr>   
                                 {   
                                     
                                     this.state.inputArray.map((e) => 
