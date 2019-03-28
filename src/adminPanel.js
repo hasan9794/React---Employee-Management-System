@@ -1,6 +1,6 @@
 import React from "react"
 import "./adminPanel.css"
-
+import Navbar from "./navbar"
 
 class Admin extends React.Component {
     constructor(){
@@ -52,18 +52,16 @@ class Admin extends React.Component {
         })
     }
 
+    editText(event){
+       let a = prompt("Enter text or value to be repplaced")
+        event.target.innerHTML = a;
+    }
+
     render(){
         
         return(
             <div>
-            <nav>
-                <div className="nav-wrapper">
-                    <a href className="brand-logo">AdminPanel</a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li style={{marginRight: 20}}>Welcome! Admin</li>
-                    </ul>
-                </div>
-            </nav>
+                <Navbar />
                 <div className="container">
                 { !this.state.addBtn && <div class="row">
                         <table style={{marginTop: 30}} className="striped">
@@ -79,11 +77,11 @@ class Admin extends React.Component {
                                     
                                     this.state.inputArray.map((e) => 
                                             <tr>
-                                                <td>{e.fName}</td>
-                                                <td>{e.lName}</td>
-                                                <td>{e.email}</td>
-                                                <td>{e.salary}</td>
-                                                <td>{e.date}</td>
+                                                <td name="fName" onClick={this.editText.bind(this)}>{e.fName}</td>
+                                                <td name="lName" onClick={this.editText.bind(this)}>{e.lName}</td>
+                                                <td name="email" onClick={this.editText.bind(this)}>{e.email}</td>
+                                                <td name="salary" onClick={this.editText.bind(this)}>{e.salary}</td>
+                                                <td name="date" onClick={this.editText.bind(this)}>{e.date}</td>
                                                 <td><i onClick={this.del.bind(this,e.id)} class="far fa-trash-alt ui"></i></td>
                                             </tr>
                                         
