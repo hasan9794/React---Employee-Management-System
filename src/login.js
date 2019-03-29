@@ -40,13 +40,14 @@ class LoginForm extends React.Component {
     }
 
     handleClick(){
+        let date = new Date()
         let obj = {
             fName: this._firstName.value ,
             lName: this._lastName.value ,
             email: this._email.value ,
             salary: this._salary.value ,
-            date: this._date.value,
-            id: Date.now()
+            date: ` ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
+            id: "ss"
         }
         console.log(obj)
         
@@ -111,6 +112,7 @@ class LoginForm extends React.Component {
                     <div>
                     <Navbar 
                         method={this.logout.bind(this)}
+                        key="123"
                     />
                     <div className="container">
                     { !this.state.addBtn && <div class="row">
@@ -119,9 +121,10 @@ class LoginForm extends React.Component {
                                 <tr>
                                     <th>First Name</th>
                                     <th>Last Name</th>
-                                    <th>Email</th>
+                                    <th>Email Address</th>
                                     <th>Salary</th>
                                     <th>Job Start Date</th>
+                                    <th></th>
                                 </tr>   
                                 </thead>
                                 <tbody>
@@ -134,6 +137,7 @@ class LoginForm extends React.Component {
                                                     <td name="salary" onClick={this.editText.bind(this)}>{e.salary}</td>
                                                     <td name="date" onClick={this.editText.bind(this)}>{e.date}</td>
                                                     <td><i onClick={this.del.bind(this,e.id)} class="far fa-trash-alt ui"></i></td>
+                    
                                                 </tr>        
                                         )
                                     }  
@@ -164,12 +168,12 @@ class LoginForm extends React.Component {
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input ref={(s) => this._salary = s} name="salary" id="salary" type="number" class="validate"  />
+                                <input ref={(s) => this._salary = s} name="salary" id="salary" type="number" class="validate" />
                                 <label for="salary">Salary</label>
                             </div>
                             <div class="input-field col s6">
-                                <input ref={(s) => this._date = s} name="date" id="date" type="text" class="datepicker"  />
-                                <label for="date">Date of Joining (eg. 04/12/2017)</label>
+                                <input ref={(s) => this._date = s} name="date" id="date" type="text" class="datepicker" disabled />
+                                <label for="date">Date of Joining: {new Date().getDate()}/{new Date().getMonth()+1}/{new Date().getFullYear()}</label>
                             </div>
                             <div className="input-field">
                                 <div style={{width: "100%"}} className="col">
