@@ -19,6 +19,14 @@
   color: white;
 }
 
+table {
+  border: 1px solid black;
+}
+
+th{
+  text-align: center,
+}
+
 .App-link {
   color: #61dafb;
 }

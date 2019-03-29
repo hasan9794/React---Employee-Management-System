@@ -15,12 +15,6 @@ class Admin extends React.Component {
         }
     }
 
-    handleChange(event){
-        this.setState({
-            [event.target.name] : event.target.value
-        })
-        console.log([event.target.value])
-    }
 
     handleClick(){
         let obj = {
@@ -57,7 +51,12 @@ class Admin extends React.Component {
 
     editText(event){
         let a = prompt("Enter text or value to be repplaced")
-        event.target.innerHTML = a;
+        console.log(a)
+        // if(a !== "a"){
+        //     event.target.innerHTML = a;
+        // } else{
+        //     swal("Please Enter something")
+        // }
     }
 
     render(){
@@ -101,7 +100,7 @@ class Admin extends React.Component {
                     </div>
                     <div className="row">
                         <div class="input-field col s6">
-                            <input ref={(s) => this._firstName = s} name="fName" id="first_name" type="text" class="validate"  />
+                            <input ref={(s) => this._firstName = s} name="fName" id="first_name" type="text" class="validate" autoFocus/>
                             <label for="first_name">First Name</label>
                         </div>
                         <div class="input-field col s6">
